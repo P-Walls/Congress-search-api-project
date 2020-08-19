@@ -1,75 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- My CSS -->
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" />
     <title>Search a Member of Congress</title>
-</head>
-<body>
-    
+  </head>
 
+  <body>
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Search Congress</h1>
-          <p class="lead">Use this tool to search for information about Members of Congress, Past or Present</p>
-        </div>
+      <div class="container" id="title">
+        <h1 class="display-4">Search the Senate</h1>
+        <p class="lead">
+          Use this tool to search for information about current United States
+          Senators.
+        </p>
       </div>
-
-    <br>
-
-    <div class="form container">
-        <form class="searchForm">
-            <div class="form-row">
-                <div class="col">
-                    <input type="text" class="form-control first-name" placeholder="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control last-name" placeholder="Last name">
-                </div>
-            </div>
-            <br>
-            <div class="form-row">
-                <!-- Consider making these dropdowns to select from a few parties, and from the states -->
-                <div class="col">
-                    <input type="text" class="form-control party" placeholder="Party">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control state" placeholder="State">
-                </div>
-            </div>
-            <br>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input houseOfReps">
-                <label class="custom-control-label" for="customRadioInline1">House of Representatives</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input senate">
-                <label class="custom-control-label" for="customRadioInline2">Senate</label>
-              </div>
-            <br>
-            <!-- Other possible search criteria? Years served, committees, depends on what I can find. -->
-            <br>
-            <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
     </div>
 
+    <br />
+
+    <div class="form container card">
+      <div class="card-body">
+        <form class="searchForm">
+          <div class="form-row">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control state"
+                placeholder="Enter a State"
+                maxlength="2"
+                style="text-transform: uppercase;"
+                required
+              />
+            </div>
+          </div>
+          <!-- Come back to this for future development. <br />
+                <div>
+                    <select class="form-control chamberSelector">
+                        <option>Choose a Congressional Chamber</option>
+                        <option value="senate">Senate</option>
+                        <option value="house">House of Representatives</option>
+                    </select>
+                </div>
+            <br /> -->
+          <!-- Other possible search criteria? Years served, committees, depends on what I can find. -->
+          <br />
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Results go here. Perhaps build it out before implementing it in JS -->
-    <section>
-
-    </section>
+    <section class="container" id="senateResults"></section>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
     <!-- My JS -->
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>

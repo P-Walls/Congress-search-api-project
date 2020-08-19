@@ -1,0 +1,31 @@
+* {
+    font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+    color: #1F273A;
+}
+
+
+.jumbotron {
+    background-image: url('https://images.unsplash.com/photo-1575320181282-9afab399332c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+}
+
+#title {
+    float: left;
+    margin-left: 8em;
+}
+
+.senatorDiv {
+    margin: 5em;
+    padding: 2em;
+    min-width: 15em;
+    
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+
