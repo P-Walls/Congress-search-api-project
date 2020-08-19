@@ -16,8 +16,6 @@ function fetchResults(e) {
   console.log(e);
   e.preventDefault();
 
-  //Based on time constraints, I may make this something that you can just search based on state and return current senators. I could then return contact info, should someone have an issue they wish to call about. House, if time.
-
   url = baseURL + "senate/" + stateSearch.value + "/current.json";
 
   fetch(url, {
@@ -51,22 +49,27 @@ function fetchResults(e) {
       let senatorParty = document.createElement("p");
       let senatorTwitter = document.createElement("p");
       let nextElection = document.createElement("p");
-      let cardDiv = document.createElement('div');
-      let cardRow = document.createElement('div');
+      let cardDiv = document.createElement("div");
+      let cardRow = document.createElement("div");
 
       let current = senators[i];
 
       senatorName.textContent = "Senator " + current.name;
       senatorParty.textContent = "Party: " + current.party;
       senatorTwitter.textContent = "Twitter: @" + current.twitter_id;
-      nextElection.textContent = "Senator " + current.last_name + " is up for reelection in " + current.next_election + ".";
+      nextElection.textContent =
+        "Senator " +
+        current.last_name +
+        " is up for reelection in " +
+        current.next_election +
+        ".";
 
       function appendLink() {
         if (
           current.times_topics_url === "" ||
           current.times_topics_url === null
         ) {
-          console.log(current.times_topics_url);      
+          console.log(current.times_topics_url);
         } else {
           let senatorNews = document.createElement("a");
           senatorNews.href = current.times_topics_url;
